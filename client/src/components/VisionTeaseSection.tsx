@@ -70,31 +70,6 @@ export default function VisionTeaseSection() {
       }
     }
   };
-  
-  // Feature data
-  const features = [
-    {
-      title: "Learn",
-      description: "Knowledge that makes sense, delivered in ways that respect your time and intelligence. No jargon, no gatekeeping.",
-      icon: BookOpen,
-      color: "from-[#6FCFC3] to-[#2A6F79]",
-      bgColor: "from-[#6FCFC3]/20 via-[#4CB0A3]/10 to-transparent"
-    },
-    {
-      title: "Practice",
-      description: "Build confidence through experience, not intimidating theory. Learn by doing in a safe, guided environment.",
-      icon: Smile,
-      color: "from-[#4CB0A3] to-[#2A6F79]",
-      bgColor: "from-[#4CB0A3]/20 via-[#3A8F89]/10 to-transparent"
-    },
-    {
-      title: "Empower",
-      description: "Take control with tools that adapt to your goals and values, not someone else's definition of financial success.",
-      icon: Clock,
-      color: "from-[#2A6F79] to-[#1A6366]",
-      bgColor: "from-[#2A6F79]/20 via-[#1A6366]/10 to-transparent"
-    }
-  ];
 
   return (
     <section 
@@ -213,28 +188,145 @@ export default function VisionTeaseSection() {
             </motion.p>
           </motion.div>
           
-          {/* Cards with brilliant features */}
+          {/* Unified Core Tenets Section - consolidated value proposition */}
           <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 mb-20"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
+            className="max-w-6xl mx-auto mb-20"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
           >
-            {features.map((feature, index) => (
+            {/* Section header */}
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-[#2A353A] mb-4">
+                Where <span className="text-[#2A6F79]">clarity</span> meets <span className="text-[#2A6F79]">confidence</span>
+              </h3>
+              <p className="text-[#2A353A]/70 text-lg max-w-3xl mx-auto">
+                Financial tools designed around how people actually think about money, not how Wall Street does.
+              </p>
+            </motion.div>
+            
+            {/* Core tenets cards in a sophisticated three-column grid */}
+            <motion.div 
+              className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              {/* Core Tenet 1: Clarity - merged concept */}
               <motion.div 
-                key={index}
                 className="group relative"
                 variants={featureItem}
               >
-                {/* Card background glow effect */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgColor} rounded-2xl transform transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] -z-10`} />
+                {/* Elegant background effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#6FCFC3]/20 via-[#4CB0A3]/10 to-transparent rounded-2xl transform transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] -z-10" />
                 
-                {/* Card content with enhanced styling and effects */}
+                {/* Card content with consistent design system */}
                 <div className="feature-card h-full flex flex-col p-8 md:p-10 backdrop-blur-sm bg-white/90 rounded-2xl border border-[#6FCFC3]/20 shadow-lg shadow-[#6FCFC3]/5 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-[#6FCFC3]/10 group-hover:bg-white group-hover:border-[#6FCFC3]/30">
-                  {/* Icon with enhanced animated gradient */}
+                  {/* Icon with subtle animation */}
                   <div className="relative mb-8">
-                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.color} flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:rounded-[22px]`}>
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#6FCFC3] to-[#2A6F79] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:rounded-[22px]">
+                      <motion.div
+                        animate={{ 
+                          rotate: [0, 5, 0, -5, 0],
+                          scale: [1, 1.05, 1, 1.05, 1]
+                        }}
+                        transition={{ 
+                          duration: 6, 
+                          repeat: Infinity
+                        }}
+                      >
+                        <BookOpen className="h-10 w-10 text-white" />
+                      </motion.div>
+                    </div>
+                    
+                    {/* Subtle glow effect */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-2xl"
+                      animate={{ 
+                        boxShadow: [
+                          `0 0 0 rgba(111, 207, 195, 0)`,
+                          `0 0 30px rgba(111, 207, 195, 0.6)`,
+                          `0 0 0 rgba(111, 207, 195, 0)`
+                        ]
+                      }}
+                      transition={{ 
+                        repeat: Infinity,
+                        duration: 3
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Concise, impactful content */}
+                  <motion.h3 
+                    className="text-2xl font-bold mb-5 text-[#2A353A] group-hover:text-[#2A6F79] transition-colors duration-300"
+                    whileHover={{ x: 3 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Learn
+                  </motion.h3>
+                  
+                  <p className="text-[#2A353A]/80 text-lg leading-relaxed flex-grow mb-6">
+                    Clear, jargon-free explanations that make finance accessible to everyone, respecting your time and intelligence.
+                  </p>
+                  
+                  {/* Key feature highlights in a list format */}
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-2">
+                      <div className="text-[#2A6F79] mt-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity, repeatType: "loop" }}
+                        >
+                          <Sparkles size={16} />
+                        </motion.div>
+                      </div>
+                      <span className="text-[#2A353A]/70 text-sm">Simplified communication</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="text-[#2A6F79] mt-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, delay: 0.3, repeat: Infinity, repeatType: "loop" }}
+                        >
+                          <Sparkles size={16} />
+                        </motion.div>
+                      </div>
+                      <span className="text-[#2A353A]/70 text-sm">Smart insights tailored to you</span>
+                    </li>
+                  </ul>
+                  
+                  {/* Animated accent line */}
+                  <motion.div 
+                    className="h-1.5 w-0 bg-gradient-to-r from-[#6FCFC3] to-[#2A6F79] mt-auto rounded-full"
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 1.2 }}
+                  />
+                </div>
+              </motion.div>
+              
+              {/* Core Tenet 2: Confidence - merged concept */}
+              <motion.div 
+                className="group relative"
+                variants={featureItem}
+              >
+                {/* Elegant background effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#4CB0A3]/20 via-[#3A8F89]/10 to-transparent rounded-2xl transform transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] -z-10" />
+                
+                {/* Card content with consistent design system */}
+                <div className="feature-card h-full flex flex-col p-8 md:p-10 backdrop-blur-sm bg-white/90 rounded-2xl border border-[#6FCFC3]/20 shadow-lg shadow-[#6FCFC3]/5 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-[#6FCFC3]/10 group-hover:bg-white group-hover:border-[#6FCFC3]/30">
+                  {/* Icon with subtle animation */}
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#4CB0A3] to-[#2A6F79] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:rounded-[22px]">
                       <motion.div
                         animate={{ 
                           rotate: [0, 5, 0, -5, 0],
@@ -243,14 +335,14 @@ export default function VisionTeaseSection() {
                         transition={{ 
                           duration: 6, 
                           repeat: Infinity,
-                          delay: index * 1.5
+                          delay: 0.5
                         }}
                       >
-                        <feature.icon className="h-10 w-10 text-white" />
+                        <Smile className="h-10 w-10 text-white" />
                       </motion.div>
                     </div>
                     
-                    {/* Enhanced animated glow effect */}
+                    {/* Subtle glow effect */}
                     <motion.div 
                       className="absolute inset-0 rounded-2xl"
                       animate={{ 
@@ -263,60 +355,157 @@ export default function VisionTeaseSection() {
                       transition={{ 
                         repeat: Infinity,
                         duration: 3,
-                        delay: index * 0.5
+                        delay: 0.5
                       }}
                     />
-                    
-                    {/* Subtle floating background element */}
-                    <div className="absolute -z-10 -right-4 -bottom-4 w-16 h-16 rounded-full bg-gradient-to-br from-[#6FCFC3]/10 to-[#2A6F79]/5 blur-sm floating-element-slow"></div>
                   </div>
                   
-                  {/* Title and description with enhanced typography */}
+                  {/* Concise, impactful content */}
                   <motion.h3 
-                    className="text-2xl md:text-3xl font-bold mb-5 text-[#2A353A] group-hover:text-[#2A6F79] transition-colors duration-300"
+                    className="text-2xl font-bold mb-5 text-[#2A353A] group-hover:text-[#2A6F79] transition-colors duration-300"
                     whileHover={{ x: 3 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {feature.title}
+                    Practice
                   </motion.h3>
                   
-                  <p className="text-[#2A353A]/80 text-lg leading-relaxed flex-grow mb-8 group-hover:text-[#2A353A]/90 transition-colors duration-300">
-                    {feature.description}
+                  <p className="text-[#2A353A]/80 text-lg leading-relaxed flex-grow mb-6">
+                    Build confidence through experience, not intimidating theory, in a safe, guided environment that adapts to your goals.
                   </p>
                   
-                  {/* Enhanced learn more button */}
-                  <motion.div 
-                    className="flex items-center text-[#4CB0A3] font-medium px-4 py-2 rounded-lg bg-[#6FCFC3]/10 w-fit group-hover:bg-[#6FCFC3]/20 transition-colors duration-300"
-                    whileHover={{ 
-                      x: 5, 
-                      backgroundColor: "rgba(111, 207, 195, 0.2)",
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    <span>Learn more</span>
-                    <motion.div
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{ 
-                        duration: 1.5, 
-                        repeat: Infinity,
-                        repeatType: "loop"
-                      }}
-                    >
-                      <ArrowUpRight className="ml-2 h-5 w-5" />
-                    </motion.div>
-                  </motion.div>
+                  {/* Key feature highlights in a list format */}
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-2">
+                      <div className="text-[#2A6F79] mt-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, delay: 0.1, repeat: Infinity, repeatType: "loop" }}
+                        >
+                          <Sparkles size={16} />
+                        </motion.div>
+                      </div>
+                      <span className="text-[#2A353A]/70 text-sm">User-centered design</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="text-[#2A6F79] mt-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, delay: 0.4, repeat: Infinity, repeatType: "loop" }}
+                        >
+                          <Sparkles size={16} />
+                        </motion.div>
+                      </div>
+                      <span className="text-[#2A353A]/70 text-sm">Decision clarity in every step</span>
+                    </li>
+                  </ul>
                   
-                  {/* Animated accent line with enhanced visual */}
+                  {/* Animated accent line */}
                   <motion.div 
-                    className={`h-1.5 w-0 bg-gradient-to-r ${feature.color} mt-8 rounded-full`}
+                    className="h-1.5 w-0 bg-gradient-to-r from-[#4CB0A3] to-[#2A6F79] mt-auto rounded-full"
                     initial={{ width: "0%" }}
                     whileInView={{ width: "100%" }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 + index * 0.2, duration: 1.2 }}
+                    transition={{ delay: 0.4, duration: 1.2 }}
                   />
                 </div>
               </motion.div>
-            ))}
+              
+              {/* Core Tenet 3: Alignment - merged concept */}
+              <motion.div 
+                className="group relative"
+                variants={featureItem}
+              >
+                {/* Elegant background effects */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#2A6F79]/20 via-[#1A6366]/10 to-transparent rounded-2xl transform transition-all duration-500 opacity-80 group-hover:opacity-100 group-hover:scale-[1.03] -z-10" />
+                
+                {/* Card content with consistent design system */}
+                <div className="feature-card h-full flex flex-col p-8 md:p-10 backdrop-blur-sm bg-white/90 rounded-2xl border border-[#6FCFC3]/20 shadow-lg shadow-[#6FCFC3]/5 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-[#6FCFC3]/10 group-hover:bg-white group-hover:border-[#6FCFC3]/30">
+                  {/* Icon with subtle animation */}
+                  <div className="relative mb-8">
+                    <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#2A6F79] to-[#1A6366] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl group-hover:rounded-[22px]">
+                      <motion.div
+                        animate={{ 
+                          rotate: [0, 5, 0, -5, 0],
+                          scale: [1, 1.05, 1, 1.05, 1]
+                        }}
+                        transition={{ 
+                          duration: 6, 
+                          repeat: Infinity,
+                          delay: 1
+                        }}
+                      >
+                        <Clock className="h-10 w-10 text-white" />
+                      </motion.div>
+                    </div>
+                    
+                    {/* Subtle glow effect */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-2xl"
+                      animate={{ 
+                        boxShadow: [
+                          `0 0 0 rgba(111, 207, 195, 0)`,
+                          `0 0 30px rgba(111, 207, 195, 0.6)`,
+                          `0 0 0 rgba(111, 207, 195, 0)`
+                        ]
+                      }}
+                      transition={{ 
+                        repeat: Infinity,
+                        duration: 3,
+                        delay: 1
+                      }}
+                    />
+                  </div>
+                  
+                  {/* Concise, impactful content */}
+                  <motion.h3 
+                    className="text-2xl font-bold mb-5 text-[#2A353A] group-hover:text-[#2A6F79] transition-colors duration-300"
+                    whileHover={{ x: 3 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Empower
+                  </motion.h3>
+                  
+                  <p className="text-[#2A353A]/80 text-lg leading-relaxed flex-grow mb-6">
+                    Take control with tools that adapt to your values and goals, not someone else's definition of financial success.
+                  </p>
+                  
+                  {/* Key feature highlights in a list format */}
+                  <ul className="space-y-3 mb-8">
+                    <li className="flex items-start gap-2">
+                      <div className="text-[#2A6F79] mt-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, delay: 0.2, repeat: Infinity, repeatType: "loop" }}
+                        >
+                          <Sparkles size={16} />
+                        </motion.div>
+                      </div>
+                      <span className="text-[#2A353A]/70 text-sm">Value-aligned investing</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <div className="text-[#2A6F79] mt-1">
+                        <motion.div
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, delay: 0.5, repeat: Infinity, repeatType: "loop" }}
+                        >
+                          <Sparkles size={16} />
+                        </motion.div>
+                      </div>
+                      <span className="text-[#2A353A]/70 text-sm">Personalized financial journey</span>
+                    </li>
+                  </ul>
+                  
+                  {/* Animated accent line */}
+                  <motion.div 
+                    className="h-1.5 w-0 bg-gradient-to-r from-[#2A6F79] to-[#1A6366] mt-auto rounded-full"
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "100%" }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 1.2 }}
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
           
           {/* Visually distinct "Coming Soon" section - fixes hierarchy confusion */}
